@@ -32,20 +32,30 @@ const ExploreChallenges = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-100 px-10">
-      <div className="container mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8">Explore Challenges</h1>
-        <SearchFilter searchTerm={searchTerm} setSearchTerm={setSearchTerm} filter={filter} setFilter={setFilter} />
+    <>
+    
+      <div className="">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredHackathons.length > 0 ? (
-            filteredHackathons.map(hackathon => <HackathonCard key={hackathon.id} hackathon={hackathon} />)
-          ) : (
-            <p className="text-center col-span-full">No hackathons found.</p>
-          )}
+        <div className="container mx-auto">
+          <div className='bg-[#002A3B] text-white px-8 py-24'>
+            <h1 className="text-4xl font-bold text-center mb-8">Explore Challenges</h1>
+
+            <SearchFilter  searchTerm={searchTerm} setSearchTerm={setSearchTerm} filter={filter} setFilter={setFilter} />
+
+          </div>
+
+          <div className='bg-[#003145] py-10 px-24 gap-7 space-x-10'>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+              {filteredHackathons.length > 0 ? (
+                filteredHackathons.map(hackathon => <HackathonCard key={hackathon.id} hackathon={hackathon} />)
+              ) : (
+                <p className="text-center col-span-full">No hackathons found.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

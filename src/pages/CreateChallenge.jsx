@@ -33,10 +33,17 @@ const CreateChallenge = () => {
   return (
     <>
       <Nav />
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl w-full space-y-8">
-          <h1 className="text-3xl font-bold text-gray-900 text-center">Challenge Details</h1>
-          <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg space-y-6">
+      <div className="text-3xl w-full h-20 content-center  font-bold text-gray-900 bg-[#F8F9FD]">
+        <p className='ml-14'>
+        Challenge Details</p>
+        </div>
+      <div className="min-h-screen  flex  px-4 sm:px-6 ">
+        
+        <div className="max-w-3xl col w-full">
+        
+          
+
+          <form onSubmit={handleSubmit} className="bg-white p-8  space-y-6">
             <div className="space-y-2">
               <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                 Challenge Name
@@ -142,7 +149,9 @@ const CreateChallenge = () => {
               Save Changes
             </button>
           </form>
+
         </div>
+
       </div>
     </>
   );
