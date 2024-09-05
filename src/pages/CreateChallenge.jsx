@@ -23,7 +23,7 @@ const CreateChallenge = () => {
       endDate,
       description,
       levelType,
-      imageUrl: '' // Placeholder, it will be updated later after image upload
+      imageUrl: '' 
     };
 
     await createHackathonWithImage(hackathon, imageFile);

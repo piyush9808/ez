@@ -2,14 +2,19 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
+
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyADs9dILCueB9Nanmt8rMb7Kb66kfP7IY4",
-  authDomain: "ezhack-88121.firebaseapp.com",
-  projectId: "ezhack-88121",
-  storageBucket: "ezhack-88121.appspot.com",
-  messagingSenderId: "1003351554027",
-  appId: "1:1003351554027:web:90dc5bbdb1eb62f4380bae"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
 };
+
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app); 

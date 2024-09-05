@@ -7,7 +7,7 @@ const HackathonCard = ({ hackathon }) => {
 
   const isUpcoming = new Date(startDate) > new Date();
   const status = isUpcoming ? 'Upcoming' : 'Past';
-console.log(imageUrl);
+
   // Navigate to the hackathon details page
   const handleNavigate = () => {
     navigate(`/hackathon/${id}`);
