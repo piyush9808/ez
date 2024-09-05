@@ -1,8 +1,14 @@
 import React from 'react'
 import rocket from '../assets/rocket.png'
 import { Button } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
+    const navigate = useNavigate();
+
+    const gotocreate = () => {
+        navigate("/CreateChallenge")
+    }
     return (
         <div className='bg-slate-500 '>
             {/* banner */}
@@ -18,11 +24,13 @@ const Hero = () => {
                         to put your AI/Data Science skills to test on diverse datasets, allowing
                         you to foster learning through competitions.
                     </p>
-                 
-                        <Button variant='contained' className="bg-white text-teal-900 font-semibold py-3 px-6 rounded-lg ">
-                            Create Challenge
-                        </Button>
-                    
+
+                    <Button variant='contained'
+                        onClick={() => gotocreate()}
+                        className="bg-white text-teal-900 font-semibold py-3 px-6 rounded-lg ">
+                        Create Challenge
+                    </Button>
+
                 </div>
 
                 {/* Right Section (Rocket Image) */}
