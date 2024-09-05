@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc, deleteDoc } from 'firebase/firestore';
-import { db } from '../firebase'; // Firestore instance
+import { db } from '../firebase'; 
 import Nav from './Nav'
-import AccessTimeIcon from '@mui/icons-material/AccessTime';// Import Material-UI icons for each difficulty level
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';  // For Easy
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'; // For Medium
-import WarningIcon from '@mui/icons-material/Warning'; // For Hard
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-import Button from '@mui/material/Button'; // Material-UI button
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+
+import Button from '@mui/material/Button'; 
+
+import { MdSignalCellular2Bar } from "react-icons/md";
+import { MdSignalCellular3Bar } from "react-icons/md";
+import { MdSignalCellular4Bar } from "react-icons/md";
+
 
 const HackathonDetails = () => {
   const { id } = useParams(); // Get hackathon id from URL
@@ -44,11 +45,11 @@ const HackathonDetails = () => {
   const getLevelIcon = (levelType) => {
     switch (levelType.toLowerCase()) {
       case 'easy':
-        return <CheckCircleIcon className="text-green-500" />;
+        return <MdSignalCellular2Bar className="border-2 solid size-6" />;
       case 'medium':
-        return <ErrorOutlineIcon className="text-yellow-500" />;
+        return <MdSignalCellular3Bar />;
       case 'hard':
-        return <WarningIcon className="text-red-500" />;
+        return <MdSignalCellular4Bar  />;
       default:
         return null;
     }
@@ -78,12 +79,9 @@ const HackathonDetails = () => {
 
               {/* Title */}
               <h1 className="text-5xl font-bold">{hackathon.title}</h1>
-              {/* <p className="text-lg mt-2">{hackathon.description}</p> */}
-
-              {/* Difficulty Badge with Icon */}
+ 
 
               <div className="flex items-center space-x-2 w-fit bg-gray-200 text-[#003145] px-3 py-1 rounded-md text-xs">
-                {/* Render the appropriate icon based on the levelType */}
                 {getLevelIcon(hackathon.levelType)}
                 <span>{hackathon.levelType}</span>
               </div>

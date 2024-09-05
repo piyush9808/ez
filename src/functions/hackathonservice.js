@@ -1,36 +1,32 @@
 import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { db ,storage} from '../firebase';
 
-import { db ,storage} from '../firebase'; // Import the Firestore database instance
+
+
 
 const hackathonCollection = collection(db, 'hackathons');
 
 
-
-
-// Create a new hackathon and upload an image
+// Creating new hackathon
 export async function createHackathonWithImage(hackathon, imageFile) {
   try {
-    // First, create the hackathon document in Firestore
     const docRef = await addDoc(hackathonCollection, hackathon);
     const hackathonId = docRef.id;
 
     if (imageFile) {
-      // If an image is provided, upload the image to Firebase Storage
       const storageRef = ref(storage, `hackathon_images/${hackathonId}`);
       const snapshot = await uploadBytes(storageRef, imageFile);
 
-      // Get the image's URL from Firebase Storage
       const imageUrl = await getDownloadURL(snapshot.ref);
 
-      // Update the hackathon document with the image URL
       await updateDoc(doc(db, 'hackathons', hackathonId), {
         imageUrl
       });
     }
 
     console.log('Hackathon created with ID: ', hackathonId);
-    return hackathonId; // Return the document ID if needed
+    return hackathonId; 
   } catch (error) {
     console.error('Error creating hackathon: ', error);
     throw new Error('Unable to create hackathon');

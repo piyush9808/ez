@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { db } from '../firebase'; // Firestore instance
+import { db } from '../firebase'; 
 import Nav from './Nav';
 
 const EditHackathon = () => {
-  const { id } = useParams(); // Get hackathon id from URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [hackathon, setHackathon] = useState({
     title: '',
